@@ -23,11 +23,11 @@ const Hero = () => {
       <div className="container relative" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
           <h1 className="h1 mb-6">
-            Explore the Universe of <br />{" "}
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-300  via-pink-400 via-purple-400 to-blue-400">
+            Explore the Universe of&nbsp;
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-300  via-pink-400 via-purple-400 to-blue-400">
               ERC-404
             </span>
-            &nbsp; Launchpad with {` `}
+            &nbsp; Launchpad with
             <span className="inline-block relative">
               Brainwave{" "}
               <img
