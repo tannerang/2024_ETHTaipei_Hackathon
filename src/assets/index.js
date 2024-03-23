@@ -37,6 +37,15 @@ import photoshop from "./collaboration/photoshop.png";
 import protopie from "./collaboration/protopie.png";
 import raindrop from "./collaboration/raindrop.png";
 import slack from "./collaboration/slack.png";
+import aliens from "./collaboration/aliens.png";
+import anon from "./collaboration/anon.png";
+import crystal from "./collaboration/crystal.png";
+import defrogs from "./collaboration/defrogs.png";
+import mystcl from "./collaboration/mystcl.png";
+import pandora from "./collaboration/pandora.png";
+import rug from "./collaboration/rug.png";
+import yes from "./collaboration/yes.png";
+import beans from "./collaboration/beans.png";
 
 import service1 from "./services/service-1.png";
 import service2 from "./services/service-2.png";
@@ -148,4 +157,13 @@ export {
   instagram,
   telegram,
   twitter,
+  aliens,
+  anon,
+  crystal,
+  defrogs,
+  mystcl,
+  pandora,
+  rug,
+  yes,
+  beans,
 };
