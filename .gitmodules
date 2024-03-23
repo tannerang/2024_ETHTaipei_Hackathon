@@ -10,3 +10,6 @@
 [submodule "contracts/arror-v1/factory-v1/lib/erc404"]
 	path = contracts/arror-v1/factory-v1/lib/erc404
 	url = https://github.com/Pandora-Labs-Org/erc404
+[submodule "contracts/arror-v1/factory-v1/lib/openzeppelin-contracts"]
+	path = contracts/arror-v1/factory-v1/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
