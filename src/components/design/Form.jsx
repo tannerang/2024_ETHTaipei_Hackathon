@@ -1,5 +1,9 @@
 import Button from "../Button";
 import { useState } from "react";
+import { useWriteContract, useReadContract } from "wagmi";
+import { CONFIG } from "../../../config";
+import ArrorFactory from "../../abis/ArrorFactory.json";
+import Factory from "../../abis/Factory.json";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -71,6 +75,37 @@ const Form = () => {
       setErrors({});
     }
   };
+
+  const result = useReadContract({
+    abi: Factory,
+    address: CONFIG.FACTORY_ADDRESS,
+    functionName: 'allPairsLength',
+  })
+  
+//   const { data: hash, writeContract  } = useWriteContract()
+  // async function submit() {
+  //   const formData = new FormData(e.target)
+  //   const tokenId = formData.get('tokenId')
+  //   writeContract({
+  //     address: CONFIG.ARROR_FACTORY_ADDRESS,
+  //     abi: ArrorFactory,
+  //     functionName: 'createERC404',
+  //     args: ["123","123",BigInt(18),1000,"https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg","https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg","https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg","https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg","https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg",BigInt(0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0)],
+  //   })
+  // }
+
+  const { data: hash2, writeContract : writeContract2 } = useWriteContract()
+
+  async function submit2(e) {
+    e.preventDefault()
+    // const formData = new FormData(e.target as HTMLFormElement)
+    // const tokenId = formData.get('tokenId') as string
+    writeContract2({
+      address: CONFIG.ARROR_FACTORY_ADDRESS,
+      abi: ArrorFactory,
+      functionName: 'testBool',
+    })
+  }
 
   return (
     <form onSubmit={handleSubmit} class="max-w-md mx-auto">
@@ -213,7 +248,13 @@ const Form = () => {
         </label>
       </div>
 
-      <Button type="submit">Create</Button>
+      <Button 
+      type="submit"      
+      disabled={!submit2}
+      onClick={submit2}
+      >
+        Create
+      </Button>
     </form>
   );
 };

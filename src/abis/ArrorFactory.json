@@ -1,0 +1,146 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_dysonFactory",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_dysonRouter",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newArrorERC404Address",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      }
+    ],
+    "name": "ArrorERC404Created",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "tokenA",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "tokenB",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "pair",
+        "type": "address"
+      }
+    ],
+    "name": "ArrorERC404CreatedPair",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "name_",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "symbol_",
+        "type": "string"
+      },
+      {
+        "internalType": "uint8",
+        "name": "decimals_",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxTotalSupplyERC721_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "tokenURI1_",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "tokenURI2_",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "tokenURI3_",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "tokenURI4_",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "tokenURI5_",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "tokenB_",
+        "type": "address"
+      }
+    ],
+    "name": "createERC404",
+    "outputs": [
+      {
+        "internalType": "contract ArrorERC404",
+        "name": "newArror",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "testBool",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_test",
+        "type": "uint256"
+      }
+    ],
+    "name": "testBool2",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
