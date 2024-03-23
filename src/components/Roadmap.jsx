@@ -3,7 +3,7 @@ import Heading from "./Heading";
 import Section from "./Section";
 import Tagline from "./Tagline";
 import { roadmap } from "../constants";
-import { check2, grid, loading1 } from "../assets";
+import { check2, grid, loading1, loading2 } from "../assets";
 import { Gradient } from "./design/Roadmap";
 
 const Roadmap = () => (
@@ -39,7 +39,7 @@ const Roadmap = () => (
                     <div className="flex items-center px-4 py-1 bg-n-1 rounded text-n-8">
                       <img
                         className="mr-2.5"
-                        src={item.status === "done" ? check2 : loading1}
+                        src={item.status === "done" ? check2 : loading2}
                         width={16}
                         height={16}
                         alt={status}
