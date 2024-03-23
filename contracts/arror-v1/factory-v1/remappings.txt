@@ -1,1 +1,2 @@
 erc404/=lib/erc404/contracts/
+forge-std/=lib/forge-std/src/
