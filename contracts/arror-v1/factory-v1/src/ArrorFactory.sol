@@ -129,6 +129,10 @@ contract ArrorFactory {
     IFactory internal immutable dysonFactory;
     IRouter internal immutable dysonRouter;
 
+    event ArrorERC404Created(address indexed newArrorERC404Address, address indexed creator);
+    event ArrorERC404CreatedPair(address indexed tokenA, address indexed tokenB, address indexed pair);
+
+
     constructor(address _dysonFactory, address _dysonRouter) {
         dysonRouter = IRouter(_dysonRouter);
         dysonFactory = IFactory(_dysonFactory);
@@ -145,8 +149,8 @@ contract ArrorFactory {
         string memory tokenURI4_,
         string memory tokenURI5_,
         address tokenB_
-    ) public returns (address) {
-        ArrorERC404 newArror = new ArrorERC404(
+    ) public returns (ArrorERC404 newArror) {
+        newArror = new ArrorERC404(
             name_,
             symbol_,
             decimals_,
@@ -161,12 +165,16 @@ contract ArrorFactory {
             tokenURI4_,
             tokenURI5_
         );
-        _createPair(address(newArror), tokenB_);
-        return address(newArror);
+        address pair = _createPair(address(newArror), tokenB_);
+        // Set the Dyson Finance as exempt.
+        newArror.setERC721TransferExempt(address(dysonRouter), true);
+        newArror.setERC721TransferExempt(pair, true);
+        emit ArrorERC404Created(address(newArror), msg.sender);
     }
 
-    function _createPair(address tokenA, address tokenB) internal {
-        address pair = dysonFactory.createPair(tokenA, tokenB);
+    function _createPair(address tokenA, address tokenB) internal returns (address pair){
+        pair = dysonFactory.createPair(tokenA, tokenB);
         require(pair != address(0), "Factory: PAIR_EXISTS");
+        emit ArrorERC404CreatedPair(tokenA, tokenB, pair);
     }
 }
