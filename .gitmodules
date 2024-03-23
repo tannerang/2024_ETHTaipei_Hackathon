@@ -4,3 +4,12 @@
 [submodule "contracts/arror-v1/core-v1/lib/forge-std"]
 	path = contracts/arror-v1/core-v1/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "contracts/arror-v1/Dyson-Finance-V1/lib/ds-test"]
+	path = contracts/arror-v1/Dyson-Finance-V1/lib/ds-test
+	url = https://github.com/dapphub/ds-test
+[submodule "contracts/arror-v1/Dyson-Finance-V1/lib/openzeppelin-contracts"]
+	path = contracts/arror-v1/Dyson-Finance-V1/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "contracts/arror-v1/Dyson-Finance-V1/lib/forge-std"]
+	path = contracts/arror-v1/Dyson-Finance-V1/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
