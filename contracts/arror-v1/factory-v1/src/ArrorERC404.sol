@@ -6,7 +6,11 @@ import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 import {ERC404} from "erc404/ERC404.sol";
 
 contract ArrorERC404 is Ownable, ERC404 {
-  string public baseTokenURI;
+  string tokenURI1;
+  string tokenURI2;
+  string tokenURI3;
+  string tokenURI4;
+  string tokenURI5;
 
   constructor(
     string memory name_,
@@ -19,15 +23,19 @@ contract ArrorERC404 is Ownable, ERC404 {
     // Do not mint the ERC721s to the initial owner, as it's a waste of gas.
     _setERC721TransferExempt(initialMintRecipient_, true);
     _mintERC20(initialMintRecipient_, maxTotalSupplyERC721_ * units);
-
   }
 
-  function tokenURI(uint256 id_) public pure override returns (string memory) {
-    return string.concat("https://example.com/token/", Strings.toString(id_));
-  }
-
-  function setTokenURI(string memory _tokenURI) external onlyOwner {
-    baseTokenURI = _tokenURI;
+  function setTokenURIs(
+    string memory tokenURI1_,
+    string memory tokenURI2_,
+    string memory tokenURI3_,
+    string memory tokenURI4_,
+    string memory tokenURI5_) external onlyOwner {
+    tokenURI1 = tokenURI1_;
+    tokenURI2 = tokenURI2_;
+    tokenURI3 = tokenURI3_;
+    tokenURI4 = tokenURI4_;
+    tokenURI5 = tokenURI5_;
   }
 
   function setERC721TransferExempt(
@@ -36,4 +44,24 @@ contract ArrorERC404 is Ownable, ERC404 {
   ) external onlyOwner {
     _setERC721TransferExempt(account_, value_);
   }
+
+   function tokenURI(uint256 id) public view override returns (string memory) {
+      uint8 seed = uint8(bytes1(keccak256(abi.encodePacked(id))));
+      string memory targetURI;
+
+      if (seed <= 100) {
+        targetURI = tokenURI1;
+      } else if (seed <= 160) {
+        targetURI = tokenURI2;
+      } else if (seed <= 210) {
+        targetURI = tokenURI3;
+      } else if (seed <= 240) {
+        targetURI = tokenURI4;
+      } else if (seed <= 255) {
+        targetURI = tokenURI5;
+      }
+
+      return targetURI;
+  }
+
 }
