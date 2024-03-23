@@ -11,6 +11,7 @@ import {
   roadmap1,
   curve,
   lighting,
+  arrorLogo,
 } from "../assets";
 import { Gradient } from "./design/Roadmap";
 import Tagline from "./Tagline";
@@ -18,7 +19,7 @@ import Form from "./design/Form";
 
 const Application = () => {
   return (
-    <Section className="overflow-hidden" id="application">
+    <Section id="launchpad" className="overflow-hidden">
       <div className="container md:pb-10 py-8">
         <Heading tag="Ready to go" title="Let's create your first ERC-404" />
         <div className="relative grid gap-6 md:grid-cols-2 md:gap-4 md:pb-[7rem]">

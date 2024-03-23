@@ -54,24 +54,23 @@ export const navigation = [
   },
   {
     id: "1",
-    title: "Pricing",
-    url: "#pricing",
+    title: "Ecosystem",
+    url: "#ecosystem",
   },
   {
     id: "2",
-    title: "How to use",
-    url: "#how-to-use",
+    title: "Service",
+    url: "#service",
   },
   {
     id: "3",
-    title: "Roadmap",
-    url: "#roadmap",
+    title: "Launchpad",
+    url: "#launchpad",
   },
   {
     id: "4",
-    title: "New account",
-    url: "#signup",
-    onlyMobile: true,
+    title: "Roadmap",
+    url: "#roadmap",
   },
   {
     id: "5",
@@ -95,13 +94,13 @@ export const dysonLogos = [
   dysonLogo,
 ];
 
-export const brainwaveServices = [
-  "Photo generating",
-  "Photo enhance",
-  "Seamless Integration",
+export const arrorServices = [
+  "Customize logo",
+  "Unleash creativity",
+  "Enhance consensus",
 ];
 
-export const brainwaveServicesIcons = [
+export const arrorServicesIcons = [
   recording03,
   recording01,
   disc02,

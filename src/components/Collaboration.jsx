@@ -6,7 +6,7 @@ import { LeftCurve, RightCurve } from "./design/Collaboration";
 
 const Collaboration = () => {
   return (
-    <Section crosses>
+    <Section crosses id="ecosystem">
       <div className="container lg:flex">
         <div className="max-w-[25rem]">
           <h2 className="h2 mb-4 md:mb-8">
@@ -27,7 +27,7 @@ const Collaboration = () => {
             ))}
           </ul>
 
-          <Button href="#application">Try it now</Button>
+          <Button href="#launchpad">Try it now</Button>
         </div>
 
         <div className="lg:ml-auto xl:w-[38rem] mt-4">
