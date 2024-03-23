@@ -1,3 +1,4 @@
+import Application from "./components/Application";
 import ButtonGradient from "./assets/svg/ButtonGradient";
 import Benefits from "./components/Benefits";
 import Collaboration from "./components/Collaboration";
@@ -16,6 +17,7 @@ const App = () => {
         <Benefits />
         <Collaboration />
         <Services />
+        <Application />
         <Roadmap />
         <Footer />
       </div>

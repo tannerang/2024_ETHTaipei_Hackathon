@@ -90,6 +90,7 @@ import arror from "./arror.png";
 import arrorLogo from "./arrorLogo.png";
 import body from "./body.jpg";
 import loading2 from "./loading2.gif";
+import lighting from "./lighting.gif";
 
 export {
   brainwave,
@@ -175,4 +176,5 @@ export {
   arrorLogo,
   body,
   loading2,
+  lighting,
 };

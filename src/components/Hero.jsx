@@ -27,7 +27,7 @@ const Hero = () => {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-300  via-pink-400 via-purple-400 to-blue-400">
               ERC-404
             </span>
-            &nbsp; Launchpad with&nbsp;
+            &nbsp; with&nbsp;
             <span className="inline-block relative">
               ARROR{" "}
               <img
@@ -40,10 +40,10 @@ const Hero = () => {
             </span>
           </h1>
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            Unleash the power of ERC-404 within Arror. Upgrade your productivity
-            with Arror, the All-in-one Launchpad.
+            This is not an error, but a launchpad that operates at arrow-like
+            speed.
           </p>
-          <Button href="/pricing" white>
+          <Button className="px-10" href="#application" white>
             Get started
           </Button>
         </div>
@@ -76,7 +76,7 @@ const Hero = () => {
                 <ScrollParallax isAbsolutelyPositioned>
                   <Notification
                     className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
-                    title="Code generation"
+                    title="NFT Generation"
                   />
                 </ScrollParallax>
               </div>
