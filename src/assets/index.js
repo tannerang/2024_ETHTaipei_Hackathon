@@ -86,6 +86,11 @@ import instagram from "./socials/instagram.svg";
 import telegram from "./socials/telegram.svg";
 import twitter from "./socials/twitter.svg";
 
+import arror from "./arror.png";
+import arrorLogo from "./arrorLogo.png";
+import body from "./body.jpg";
+import loading2 from "./loading2.gif";
+
 export {
   brainwave,
   luckycookie,
@@ -166,4 +171,8 @@ export {
   rug,
   yes,
   beans,
+  arror,
+  arrorLogo,
+  body,
+  loading2,
 };

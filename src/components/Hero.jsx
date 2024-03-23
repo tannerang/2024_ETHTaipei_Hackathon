@@ -1,4 +1,4 @@
-import { curve, heroBackground, robot } from "../assets";
+import { curve, heroBackground, robot, body } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
@@ -27,9 +27,9 @@ const Hero = () => {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-300  via-pink-400 via-purple-400 to-blue-400">
               ERC-404
             </span>
-            &nbsp; Launchpad with
+            &nbsp; Launchpad with&nbsp;
             <span className="inline-block relative">
-              Brainwave{" "}
+              ARROR{" "}
               <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"
@@ -40,8 +40,8 @@ const Hero = () => {
             </span>
           </h1>
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            Unleash the power of ERC-404 within Brainwave. Upgrade your
-            productivity with Brainwave, the All-in-one Launchpad.
+            Unleash the power of ERC-404 within Arror. Upgrade your productivity
+            with Arror, the All-in-one Launchpad.
           </p>
           <Button href="/pricing" white>
             Get started
@@ -54,7 +54,7 @@ const Hero = () => {
 
               <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
                 <img
-                  src={robot}
+                  src={body}
                   className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]"
                   width={1024}
                   height={490}

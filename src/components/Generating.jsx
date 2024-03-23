@@ -1,4 +1,4 @@
-import { loading } from "../assets";
+import { loading, loading1, loading2 } from "../assets";
 
 const Generating = ({ className }) => {
   return (
@@ -7,8 +7,8 @@ const Generating = ({ className }) => {
         className || ""
       } text-base`}
     >
-      <img className="w-5 h-5 mr-4" src={loading} alt="Loading" />
-      AI is generating
+      <img className="w-5 h-5 mr-4" src={loading2} alt="Loading" />
+      ERC-404 is generating
     </div>
   );
 };
