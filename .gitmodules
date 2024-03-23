@@ -13,3 +13,6 @@
 [submodule "contracts/arror-v1/factory-v1/lib/openzeppelin-contracts"]
 	path = contracts/arror-v1/factory-v1/lib/openzeppelin-contracts
 	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "contracts/arror-v1/factory-v1/lib/Dyson-Finance-V1"]
+	path = contracts/arror-v1/factory-v1/lib/Dyson-Finance-V1
+	url = https://github.com/DysonFinance/Dyson-Finance-V1

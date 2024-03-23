@@ -1,2 +1,11 @@
+@openzeppelin/=lib/Dyson-Finance-V1/lib/openzeppelin-contracts/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+Dyson-Finance-V1/=lib/Dyson-Finance-V1/src/
+ds-test/=lib/Dyson-Finance-V1/lib/forge-std/lib/ds-test/src/
 erc404/=lib/erc404/contracts/
+erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/
 forge-std/=lib/forge-std/src/
+interface/=lib/Dyson-Finance-V1/src/interface/
+openzeppelin-contracts/=lib/openzeppelin-contracts/
+openzeppelin/=lib/Dyson-Finance-V1/lib/openzeppelin-contracts/contracts/
+util/=lib/Dyson-Finance-V1/src/util/
