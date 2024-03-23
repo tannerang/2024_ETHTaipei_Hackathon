@@ -1,0 +1,1 @@
+erc404/=lib/erc404/contracts/
