@@ -1,15 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.21;
+pragma solidity ^0.8.0;
 
 import {Script, console2} from "forge-std/Script.sol";
 import "../src/ArrorFactory.sol";
 
 contract DeployScript is Script {
-    
-    ArrorFactory public immutable factory;
+    ArrorFactory public factory;
     address public dysonRouter;
     address public dysonFactory;
-
 
     function setUp() public {
         dysonRouter = vm.envAddress("DYSON_ROUTER");
