@@ -7,3 +7,6 @@
 [submodule "contracts/Dyson-Finance-V1"]
     path = contracts/Dyson-Finance-V1
     url = https://github.com/DysonFinance/Dyson-Finance-V1
+[submodule "contracts/arror-v1/factory-v1/lib/erc404"]
+	path = contracts/arror-v1/factory-v1/lib/erc404
+	url = https://github.com/Pandora-Labs-Org/erc404
