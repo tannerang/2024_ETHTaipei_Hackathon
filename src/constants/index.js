@@ -207,46 +207,10 @@ export const collabApps = [
   },
 ];
 
-export const pricing = [
-  {
-    id: "0",
-    title: "Basic",
-    description: "AI chatbot, personalized recommendations",
-    price: "0",
-    features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
-    ],
-  },
-  {
-    id: "1",
-    title: "Premium",
-    description: "Advanced AI chatbot, priority support, analytics dashboard",
-    price: "9.99",
-    features: [
-      "An advanced AI chatbot that can understand complex queries",
-      "An analytics dashboard to track your conversations",
-      "Priority support to solve issues quickly",
-    ],
-  },
-  {
-    id: "2",
-    title: "Enterprise",
-    description: "Custom AI chatbot, advanced analytics, dedicated account",
-    price: null,
-    features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
-    ],
-  },
-];
-
 export const benefits = [
   {
     id: "0",
-    title: "Ask anything",
+    title: "Create easily",
     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
     backgroundUrl: "assets/benefits/card-1.svg",
     iconUrl: benefitIcon1,
@@ -254,7 +218,7 @@ export const benefits = [
   },
   {
     id: "1",
-    title: "Improve everyday",
+    title: "Deploy fastly",
     text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
     backgroundUrl: "assets/benefits/card-2.svg",
     iconUrl: benefitIcon2,
@@ -263,7 +227,7 @@ export const benefits = [
   },
   {
     id: "2",
-    title: "Connect everywhere",
+    title: "Unleash creativity",
     text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
     backgroundUrl: "assets/benefits/card-3.svg",
     iconUrl: benefitIcon3,
@@ -271,7 +235,7 @@ export const benefits = [
   },
   {
     id: "3",
-    title: "Fast responding",
+    title: "Build community",
     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
     backgroundUrl: "assets/benefits/card-4.svg",
     iconUrl: benefitIcon4,
@@ -280,7 +244,7 @@ export const benefits = [
   },
   {
     id: "4",
-    title: "Ask anything",
+    title: "Empower ideas",
     text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
     backgroundUrl: "assets/benefits/card-5.svg",
     iconUrl: benefitIcon1,
@@ -288,7 +252,7 @@ export const benefits = [
   },
   {
     id: "5",
-    title: "Improve everyday",
+    title: "Join ecosystem",
     text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
     backgroundUrl: "assets/benefits/card-6.svg",
     iconUrl: benefitIcon2,
