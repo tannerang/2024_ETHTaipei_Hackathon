@@ -1,6 +1,10 @@
 import Button from "../Button";
-import { useState } from "react";
-import { useWriteContract, useReadContract } from "wagmi";
+import { useEffect, useState } from "react";
+import {
+  useWriteContract,
+  useReadContract,
+  useWaitForTransactionReceipt,
+} from "wagmi";
 import { CONFIG } from "../../../config";
 import ArrorFactory from "../../abis/ArrorFactory.json";
 import Factory from "../../abis/Factory.json";
@@ -79,33 +83,81 @@ const Form = () => {
   const result = useReadContract({
     abi: Factory,
     address: CONFIG.FACTORY_ADDRESS,
-    functionName: 'allPairsLength',
-  })
-  
-//   const { data: hash, writeContract  } = useWriteContract()
-  // async function submit() {
-  //   const formData = new FormData(e.target)
-  //   const tokenId = formData.get('tokenId')
-  //   writeContract({
-  //     address: CONFIG.ARROR_FACTORY_ADDRESS,
-  //     abi: ArrorFactory,
-  //     functionName: 'createERC404',
-  //     args: ["123","123",BigInt(18),1000,"https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg","https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg","https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg","https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg","https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg",BigInt(0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0)],
-  //   })
-  // }
+    functionName: "allPairsLength",
+  });
 
-  const { data: hash2, writeContract : writeContract2 } = useWriteContract()
+  const { data: hash, writeContract } = useWriteContract();
+  async function submit3() {
+    // const formData = new FormData(e.target)
+    // const tokenId = formData.get('tokenId')
+    writeContract({
+      address: CONFIG.ARROR_FACTORY_ADDRESS,
+      abi: ArrorFactory,
+      functionName: "createERC404",
+      args: [
+        "123",
+        "123",
+        18,
+        1000,
+        "https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg",
+        "https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg",
+        "https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg",
+        "https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg",
+        "https://ipfs.io/ipfs/QmesrK8rNHy6HEyscLtDeBGPFsxo7ZpZ9caP7JgCGvJGWP/1.jpeg",
+        CONFIG.ARROR_FACTORY_ADDRESS,
+      ],
+    });
+
+    const {
+      isLoading: isConfirming,
+      isSuccess: isConfirmed,
+      data: receipt,
+    } = useWaitForTransactionReceipt({
+      hash: hash,
+    });
+
+    // writeContract({
+    //     address: CONFIG.ARROR_FACTORY_ADDRESS,
+    //     abi: ArrorFactory,
+    //     functionName: 'testBool2',
+    //     args: [123],
+    // })
+  }
+
+  const {
+    data: hash2,
+    writeContract: writeContract2,
+    isPending,
+  } = useWriteContract();
 
   async function submit2(e) {
-    e.preventDefault()
+    e.preventDefault();
     // const formData = new FormData(e.target as HTMLFormElement)
     // const tokenId = formData.get('tokenId') as string
     writeContract2({
       address: CONFIG.ARROR_FACTORY_ADDRESS,
       abi: ArrorFactory,
-      functionName: 'testBool',
-    })
+      functionName: "testBool",
+    });
   }
+
+  // const {
+  //   isLoading: isConfirming,
+  //   isSuccess: isConfirmed,
+  //   data: receipt,
+  // } = useWaitForTransactionReceipt({
+  //   hash: hash2,
+  // });
+
+  const result2 = useWaitForTransactionReceipt({
+    hash: "0x1a057072a037438f17cb115435d92df0e32308dadc77288f61153f900b3dae17",
+  });
+
+  useEffect(() => {
+    if (isConfirmed) {
+      console.log(`Transaction confirmed: ${receipt.transactionHash}`);
+    }
+  }, [receipt, isConfirmed]);
 
   return (
     <form onSubmit={handleSubmit} class="max-w-md mx-auto">
@@ -248,12 +300,21 @@ const Form = () => {
         </label>
       </div>
 
-      <Button 
-      type="submit"      
-      disabled={!submit2}
-      onClick={submit2}
+      <Button type="submit" disabled={!submit2 || isPending} onClick={submit2}>
+        {isPending ? "Confirming..." : "Create"}
+      </Button>
+      {hash2 && <div>Transaction Hash: {hash2}</div>}
+      {isConfirming && <div>Waiting for confirmation...</div>}
+      {isConfirmed && <div>Transaction confirmed.</div>}
+      <div>isConfirming: {isConfirming}</div>
+      <div>isConfirmed: {isConfirmed}</div>
+      <div>result2: {result2.isPending}</div>
+      <Button
+        type="submit"
+        //   disabled={!submit}
+        onClick={submit3}
       >
-        Create
+        CreateTEST
       </Button>
     </form>
   );
