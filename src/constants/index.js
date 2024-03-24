@@ -9,7 +9,6 @@ import {
   discord,
   discordBlack,
   facebook,
-  figma,
   file02,
   framer,
   homeSmile,
