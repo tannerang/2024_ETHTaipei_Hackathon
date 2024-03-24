@@ -31,54 +31,54 @@ const Form = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
+    // e.preventDefault();
+    // const newErrors = {};
 
-    if (formData.Name.trim() === "") {
-      newErrors.Name = "Name is required";
-    }
-    if (formData.Symbol.trim() === "") {
-      newErrors.Symbol = "Symbol is required";
-    }
-    if (formData.TotalSupply.trim() === "") {
-      newErrors.TotalSupply = "Max Total Supply is required";
-    }
-    if (formData.Token_URI_1.trim() === "") {
-      newErrors.Token_URI_1 = "Token URI 1 is required";
-    }
-    if (formData.Token_URI_2.trim() === "") {
-      newErrors.Token_URI_2 = "Token URI 2 is required";
-    }
-    if (formData.Token_URI_3.trim() === "") {
-      newErrors.Token_URI_3 = "Token URI 3 is required";
-    }
-    if (formData.Token_URI_4.trim() === "") {
-      newErrors.Token_URI_4 = "Token URI 4 is required";
-    }
-    if (formData.Token_URI_5.trim() === "") {
-      newErrors.Token_URI_5 = "Token URI 5 is required";
+    // if (formData.Name.trim() === "") {
+    //   newErrors.Name = "Name is required";
+    // }
+    // if (formData.Symbol.trim() === "") {
+    //   newErrors.Symbol = "Symbol is required";
+    // }
+    // if (formData.TotalSupply.trim() === "") {
+    //   newErrors.TotalSupply = "Max Total Supply is required";
+    // }
+    // if (formData.Token_URI_1.trim() === "") {
+    //   newErrors.Token_URI_1 = "Token URI 1 is required";
+    // }
+    // if (formData.Token_URI_2.trim() === "") {
+    //   newErrors.Token_URI_2 = "Token URI 2 is required";
+    // }
+    // if (formData.Token_URI_3.trim() === "") {
+    //   newErrors.Token_URI_3 = "Token URI 3 is required";
+    // }
+    // if (formData.Token_URI_4.trim() === "") {
+    //   newErrors.Token_URI_4 = "Token URI 4 is required";
+    // }
+    // if (formData.Token_URI_5.trim() === "") {
+    //   newErrors.Token_URI_5 = "Token URI 5 is required";
     }
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-    } else {
-      // 表单验证通过，执行提交逻辑
-      console.log("Form submitted:", formData);
-      // 清空表单数据
-      setFormData({
-        Name: "",
-        Symbol: "",
-        TotalSupply: "",
-        Token_URI_1: "",
-        Token_URI_2: "",
-        Token_URI_3: "",
-        Token_URI_4: "",
-        Token_URI_5: "",
-      });
-      // 清空错误信息
-      setErrors({});
-    }
-  };
+    // if (Object.keys(newErrors).length > 0) {
+    //   // setErrors(newErrors);
+    // } else {
+    //   // 表单验证通过，执行提交逻辑
+    //   console.log("Form submitted:", formData);
+    //   // 清空表单数据
+    //   setFormData({
+    //     Name: "",
+    //     Symbol: "",
+    //     TotalSupply: "",
+    //     Token_URI_1: "",
+    //     Token_URI_2: "",
+    //     Token_URI_3: "",
+    //     Token_URI_4: "",
+    //     Token_URI_5: "",
+    //   });
+    //   // 清空错误信息
+    //   setErrors({});
+    // }
+  // };
 
   const result = useReadContract({
     abi: Factory,
@@ -86,8 +86,8 @@ const Form = () => {
     functionName: "allPairsLength",
   });
 
-  const { data: hash, writeContract } = useWriteContract();
-  async function submit3() {
+  const { data: create404Hash, writeContract, isLoading } = useWriteContract();
+  async function submit4() {
     // const formData = new FormData(e.target)
     // const tokenId = formData.get('tokenId')
     writeContract({
@@ -107,14 +107,15 @@ const Form = () => {
         CONFIG.ARROR_FACTORY_ADDRESS,
       ],
     });
+  }
 
-    const {
-      isLoading: isConfirming,
-      isSuccess: isConfirmed,
-      data: receipt,
-    } = useWaitForTransactionReceipt({
-      hash: hash,
-    });
+    // const {
+    //   isLoading: isConfirming,
+    //   isSuccess: isConfirmed,
+    //   data: receipt,
+    // } = useWaitForTransactionReceipt({
+    //   hash: create404Hash,
+    // });
 
     // writeContract({
     //     address: CONFIG.ARROR_FACTORY_ADDRESS,
@@ -122,7 +123,6 @@ const Form = () => {
     //     functionName: 'testBool2',
     //     args: [123],
     // })
-  }
 
   const {
     data: hash2,
@@ -149,15 +149,6 @@ const Form = () => {
   //   hash: hash2,
   // });
 
-  const result2 = useWaitForTransactionReceipt({
-    hash: "0x1a057072a037438f17cb115435d92df0e32308dadc77288f61153f900b3dae17",
-  });
-
-  useEffect(() => {
-    if (isConfirmed) {
-      console.log(`Transaction confirmed: ${receipt.transactionHash}`);
-    }
-  }, [receipt, isConfirmed]);
 
   return (
     <form onSubmit={handleSubmit} class="max-w-md mx-auto">
@@ -169,9 +160,9 @@ const Form = () => {
           onChange={handleChange}
           class="block py-2.5 px-0 w-full text-sm text-n-1 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
-          required
+          // required
         />
-        {errors.Name && <span>{errors.Name}</span>}
+        {/* {errors.Name && <span>{errors.Name}</span>} */}
         <label
           for="Name"
           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
@@ -187,7 +178,7 @@ const Form = () => {
           onChange={handleChange}
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
-          required
+          // required
         />
         {errors.Symbol && <span>{errors.Synbol}</span>}
         <label
@@ -205,7 +196,7 @@ const Form = () => {
           onChange={handleChange}
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
-          required
+          // required
         />
         <label
           for="TotalSupply"
@@ -222,7 +213,7 @@ const Form = () => {
           onChange={handleChange}
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
-          required
+          // required
         />
         <label
           for="Token_URI_1"
@@ -239,7 +230,7 @@ const Form = () => {
           onChange={handleChange}
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
-          required
+          // required
         />
         <label
           for="Token_URI_2"
@@ -256,7 +247,7 @@ const Form = () => {
           onChange={handleChange}
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
-          required
+          // required
         />
         <label
           for="Token_URI_3"
@@ -273,7 +264,7 @@ const Form = () => {
           onChange={handleChange}
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
-          required
+          // required
         />
         <label
           for="Token_URI_4"
@@ -290,7 +281,7 @@ const Form = () => {
           onChange={handleChange}
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
-          required
+          // required
         />
         <label
           for="Token_URI_5"
@@ -301,21 +292,19 @@ const Form = () => {
       </div>
 
       <Button type="submit" disabled={!submit2 || isPending} onClick={submit2}>
-        {isPending ? "Confirming..." : "Create"}
+        {isPending ? "Confirming..." : "CreateTest"}
       </Button>
-      {hash2 && <div>Transaction Hash: {hash2}</div>}
-      {isConfirming && <div>Waiting for confirmation...</div>}
-      {isConfirmed && <div>Transaction confirmed.</div>}
-      <div>isConfirming: {isConfirming}</div>
-      <div>isConfirmed: {isConfirmed}</div>
-      <div>result2: {result2.isPending}</div>
-      <Button
-        type="submit"
-        //   disabled={!submit}
-        onClick={submit3}
+
+      <Button 
+      type="submit" 
+      disabled={!submit4} 
+      onClick={submit4}
       >
-        CreateTEST
+        {isLoading ? "Confirming..." : "Create"}
       </Button>
+      {/* {create404Hash && <div>Transaction Hash: {create404Hash}</div>} */}
+      {/* {isConfirming && <div>Waiting for confirmation...</div>}
+      {isConfirmed && <div>Transaction confirmed.</div>} */}
     </form>
   );
 };
