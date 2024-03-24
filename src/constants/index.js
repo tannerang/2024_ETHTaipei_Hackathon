@@ -130,21 +130,21 @@ export const roadmap = [
 ];
 
 export const collabText =
-  "With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.";
+  "With the help of smart contract factory, it's the fastest and easiest way to create your first token.";
 
 export const collabContent = [
   {
     id: "0",
-    title: "Seamless Integration",
+    title: "No More Code",
     text: collabText,
   },
   {
     id: "1",
-    title: "Smart Automation",
+    title: "Provide Image Links",
   },
   {
     id: "2",
-    title: "Top-notch Security",
+    title: "Submit and Done!",
   },
 ];
 

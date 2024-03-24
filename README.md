@@ -1,3 +1,9 @@
+# Arror
+
+![Arror Logo](/src/assets/arror.png "Arror Logo")
+
+This is an ERC-404 launchpad to enpower creators and Web3 enthusiasts to build their tokens in a fastest way.
+
 # Get Started
 ```
 npm install
