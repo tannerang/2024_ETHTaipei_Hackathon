@@ -176,7 +176,7 @@ const Form = () => {
           name="Symbol"
           value={formData.Symbol}
           onChange={handleChange}
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+          class="block py-2.5 px-0 w-full text-sm text-n-1  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
           // required
         />
@@ -194,7 +194,7 @@ const Form = () => {
           name="TotalSupply"
           value={formData.TotalSupply}
           onChange={handleChange}
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+          class="block py-2.5 px-0 w-full text-sm text-n-1  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
           // required
         />
@@ -211,7 +211,7 @@ const Form = () => {
           name="Token_URI_1"
           value={formData.Token_URI_1}
           onChange={handleChange}
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+          class="block py-2.5 px-0 w-full text-sm text-n-1  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
           // required
         />
@@ -228,7 +228,7 @@ const Form = () => {
           name="Token_URI_2"
           value={formData.Token_URI_2}
           onChange={handleChange}
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+          class="block py-2.5 px-0 w-full text-sm text-n-1  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
           // required
         />
@@ -245,7 +245,7 @@ const Form = () => {
           name="Token_URI_3"
           value={formData.Token_URI_3}
           onChange={handleChange}
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+          class="block py-2.5 px-0 w-full text-sm text-n-1  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
           // required
         />
@@ -262,7 +262,7 @@ const Form = () => {
           name="Token_URI_4"
           value={formData.Token_URI_4}
           onChange={handleChange}
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+          class="block py-2.5 px-0 w-full text-sm text-n-1 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
           // required
         />
@@ -279,7 +279,7 @@ const Form = () => {
           name="Token_URI_5"
           value={formData.Token_URI_5}
           onChange={handleChange}
-          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+          class="block py-2.5 px-0 w-full text-sm text-n-1  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-purple-500 focus:outline-none focus:ring-0 focus:border-purple-600 peer"
           placeholder=" "
           // required
         />
@@ -290,22 +290,22 @@ const Form = () => {
           Token URI 5
         </label>
       </div>
-      <Button
+      {/* <Button
         type="submit"
         //   disabled={!submit}
         onClick={submit3}
       >
         CreateTEST
-      </Button>
+      </Button> */}
 
       <Button type="submit" disabled={!submit2 || isPending} onClick={submit2}>
         {isPending ? "Confirming..." : "Create"}
       </Button>
-      {hash2 && <div>Transaction Hash: {hash2}</div>}
+      {/* {hash2 && <div>Transaction Hash: {hash2}</div>} */}
       {isConfirming && <div>Waiting for confirmation...</div>}
       {isConfirmed && <div>Transaction confirmed.</div>}
-      <div>isConfirming: {isConfirming}</div>
-      <div>isConfirmed: {isConfirmed}</div>
+      {/* <div>isConfirming: {isConfirming}</div>
+      <div>isConfirmed: {isConfirmed}</div> */}
 
     </form>
   );
