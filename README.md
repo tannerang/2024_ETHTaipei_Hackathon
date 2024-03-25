@@ -1,7 +1,7 @@
 # Arror
 <img width="500" alt="image" src="https://github.com/tannerang/2024_ETHTaipei_Hackathon/assets/57789692/73cab1d5-60f5-46b1-b8fe-c99344a737f9">
 
-This is an ERC-404 launchpad to enpower creators and Web3 enthusiasts to build their tokens in a fastest way.
+Arror is an ERC-404 launchpad to enpower creators and Web3 enthusiasts to build their tokens in a fastest way.
 
 # Introduction
 Innovation knows no bounds! We are your creative accelerator! Our platform is fast, simple, and efficient, just like an archer aiming for their target, enabling you to effortlessly issue unique ERC 404 tokens without the need for extensive coding knowledge. Simply provide the token name and NFT image, and with just one click, your exclusive ERC 404 token is generated, propelling you to become a leader in the world of digital currencies!
@@ -48,6 +48,8 @@ contracts/arror-v1/factory-v1/src/ArrorFactory.sol
 
 # Get Started
 ```
+git clone https://github.com/tannerang/2024_ETHTaipei_Hackathon.git
+cd 2024_ETHTaipei_Hackathon
 npm install
 npm run dev
 ```
