@@ -8,9 +8,20 @@ import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
+import { motion, AnimatePresence } from "framer-motion";
+import { useSnapshot } from "valtio";
+import state from "../store";
+import {
+  headContainerAnimation,
+  headContentAnimation,
+  headContentAnimationDelay,
+  headTextAnimation,
+  slideAnimation,
+} from "../config/motion";
 
 const Hero = () => {
   const parallaxRef = useRef(null);
+  const snap = useSnapshot(state);
 
   return (
     <Section
@@ -22,29 +33,51 @@ const Hero = () => {
     >
       <div className="container relative" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
-          <h1 className="h1 mb-6">
-            Explore the Universe of&nbsp;
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-300  via-pink-400 via-purple-400 to-blue-400">
-              ERC-404
-            </span>
-            &nbsp; with&nbsp;
-            <span className="inline-block relative">
-              ARROR{" "}
-              <img
-                src={curve}
-                className="absolute top-full left-0 w-full xl:-mt-2"
-                width={624}
-                height={28}
-                alt="Curve"
-              />
-            </span>
-          </h1>
-          <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
-            Not an error 404, but a launchpad that operates at arrow-like speed.
-          </p>
-          <Button className="px-10" href="#launchpad" white>
-            Get started
-          </Button>
+          <AnimatePresence>
+            {snap.intro && (
+              <motion.section className="home" {...slideAnimation("left")}>
+                <motion.header {...slideAnimation("down")}></motion.header>
+                <motion.div
+                  className="home-content"
+                  {...headContainerAnimation}
+                >
+                  <motion.div {...headTextAnimation}>
+                    <h1 className="h1 mb-6">
+                      Explore the Universe of&nbsp;
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-300  via-pink-400 via-purple-400 to-blue-400">
+                        ERC-404
+                      </span>
+                      &nbsp; with&nbsp;
+                      <span className="inline-block relative">
+                        ARROR{" "}
+                        <img
+                          src={curve}
+                          className="absolute top-full left-0 w-full xl:-mt-2"
+                          width={624}
+                          height={28}
+                          alt="Curve"
+                        />
+                      </span>
+                    </h1>
+                  </motion.div>
+                  <motion.div
+                    {...headContentAnimation}
+                    className="flex felx-col gap-5"
+                  >
+                    <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
+                      Not an error 404, but a launchpad that operates at
+                      arrow-like speed.
+                    </p>
+                  </motion.div>
+                </motion.div>
+                <motion.div {...headContentAnimationDelay}>
+                  <Button className="px-10" href="#launchpad" white>
+                    Get started
+                  </Button>
+                </motion.div>
+              </motion.section>
+            )}
+          </AnimatePresence>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
           <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">

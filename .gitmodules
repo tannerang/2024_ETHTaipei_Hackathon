@@ -16,3 +16,9 @@
 [submodule "contracts/arror-v1/factory-v1/lib/Dyson-Finance-V1"]
 	path = contracts/arror-v1/factory-v1/lib/Dyson-Finance-V1
 	url = https://github.com/DysonFinance/Dyson-Finance-V1
+[submodule "contracts/arror-v1/factory-v1/lib/v2-core"]
+	path = contracts/arror-v1/factory-v1/lib/v2-core
+	url = https://github.com/Uniswap/v2-core
+[submodule "contracts/arror-v1/factory-v1/lib/v2-periphery"]
+	path = contracts/arror-v1/factory-v1/lib/v2-periphery
+	url = https://github.com/Uniswap/v2-periphery
