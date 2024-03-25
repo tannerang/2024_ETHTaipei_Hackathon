@@ -1,6 +1,5 @@
 # Arror
-
-![Arror Logo](/src/assets/arror.png "Arror Logo")
+<img width="500" alt="image" src="https://github.com/tannerang/2024_ETHTaipei_Hackathon/assets/57789692/73cab1d5-60f5-46b1-b8fe-c99344a737f9">
 
 This is an ERC-404 launchpad to enpower creators and Web3 enthusiasts to build their tokens in a fastest way.
 
