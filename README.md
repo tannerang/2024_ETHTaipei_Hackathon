@@ -40,13 +40,13 @@ Together, we'll turn fleeting moments into enduring icons, crafting a legacy tha
 
 ![structure](/src/assets/structure.png "Arror Logo")
 
-# What does we do?
+# What did we do?
 contracts/arror-v1/factory-v1/src/ArrorERC404.sol
 
 contracts/arror-v1/factory-v1/src/ArrorFactory.sol
 
 
-# Get Started
+# How to Get Started
 ```
 git clone https://github.com/tannerang/2024_ETHTaipei_Hackathon.git
 cd 2024_ETHTaipei_Hackathon
