@@ -19,8 +19,8 @@ const App = () => {
         <Collaboration />
         <Services />
         <Application />
-        <Roadmap />
         <SwapWidget />
+        <Roadmap />
         <Footer />
       </div>
       <ButtonGradient />

@@ -55,8 +55,8 @@ const SwapWidget = () => {
     mode: "dark",
     fontFamily: "Sora",
     borderRadius: {
-      container: "12px",
-      inner: "8px",
+      container: "16px",
+      inner: "12px",
       button: "32px",
     },
     colors: {
@@ -70,7 +70,7 @@ const SwapWidget = () => {
     },
   };
   return (
-    <Section id="swap-widget">
+    <Section id="swap">
       <div className="container py-6">
         <Heading tag="cross-chain trading" title="Swap now" />
 

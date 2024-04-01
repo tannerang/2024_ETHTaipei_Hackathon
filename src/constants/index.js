@@ -69,13 +69,18 @@ export const navigation = [
   },
   {
     id: "4",
+    title: "Swap",
+    url: "#swap",
+  },
+  {
+    id: "5",
     title: "Roadmap",
     url: "#roadmap",
   },
   {
-    id: "5",
-    title: "Sign in",
-    url: "#login",
+    id: "6",
+    title: "Connect wallet",
+    url: "#connect-wallet",
     onlyMobile: true,
   },
 ];
