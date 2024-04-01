@@ -77,12 +77,6 @@ export const navigation = [
     title: "Roadmap",
     url: "#roadmap",
   },
-  {
-    id: "6",
-    title: "Connect wallet",
-    url: "#connect-wallet",
-    onlyMobile: true,
-  },
 ];
 
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare];

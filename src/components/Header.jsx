@@ -66,11 +66,18 @@ const Header = () => {
         </nav>
 
         <Button
-          className="hidden lg:flex"
+          className="ml-auto lg:hidden mr-3"
+          px="px-3"
+          onClick={toggleNavigation}
+        >
+          <MenuSvg openNavigation={openNavigation} />
+        </Button>
+        <Button
+          className="flex justify-content flex-end"
           href="#connect-wallet"
           id="connect-wallet"
         >
-          <ConnectButton.Custom id="connect-wallet" href="#connect-wallet">
+          <ConnectButton.Custom>
             {({
               account,
               chain,
@@ -161,14 +168,6 @@ const Header = () => {
               );
             }}
           </ConnectButton.Custom>
-        </Button>
-
-        <Button
-          className="ml-auto lg:hidden"
-          px="px-3"
-          onClick={toggleNavigation}
-        >
-          <MenuSvg openNavigation={openNavigation} />
         </Button>
       </div>
     </div>
