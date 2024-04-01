@@ -36,7 +36,7 @@ const Application = () => {
               </div>
               <div className="relative z-1">
                 <div className="flex items-center justify-between max-w-[27rem] mb-8 md:mb-20">
-                  <Tagline>Launchpad Form</Tagline>
+                  <Tagline>Create Form</Tagline>
 
                   <div className="flex items-center px-4 py-1  rounded text-n-8">
                     <img
@@ -49,7 +49,7 @@ const Application = () => {
                     <div className="tagline">loading</div>
                   </div>
                 </div>
-                <div className="mb-10 -my-10 -mx-15">
+                <div className="mb-10 -my-5 -mx-15">
                   <Form />
                   <img
                     className="w-full py-16"
@@ -94,7 +94,7 @@ const Application = () => {
                     <div className="tagline">loading</div>
                   </div>
                 </div>
-                <div className="mb-10 -my-10 -mx-15">
+                <div className="mb-10 -my-5 -mx-15">
                   <img
                     className="w-full"
                     src={body}

@@ -92,6 +92,8 @@ import body from "./body.jpg";
 import loading2 from "./loading2.gif";
 import lighting from "./lighting.gif";
 import amm from "./amm.png";
+import XYFinance from "./xy-finance.svg";
+import XYLogo from "./xyLogo.svg";
 
 export {
   brainwave,
@@ -179,4 +181,6 @@ export {
   loading2,
   lighting,
   amm,
+  XYFinance,
+  XYLogo,
 };

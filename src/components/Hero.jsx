@@ -1,4 +1,4 @@
-import { curve, heroBackground, robot, body } from "../assets";
+import { curve, heroBackground, robot, body, dysonLogo } from "../assets";
 import Button from "./Button";
 import Section from "./Section";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
@@ -129,7 +129,10 @@ const Hero = () => {
           <BackgroundCircles />
         </div>
 
-        <CompanyLogos className="hidden relative z-10 mt-20 lg:block" />
+        <CompanyLogos
+          logo={dysonLogo}
+          className="hidden relative z-10 mt-20 lg:block"
+        />
       </div>
 
       <BottomLine />

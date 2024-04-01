@@ -31,7 +31,7 @@ const Services = () => {
     <Section id="service">
       <div className="container py-6">
         <Heading
-          title="Not just a token."
+          title="Not just a token"
           text="Arror unlocks the potential of ERC-404 applications"
         />
 
@@ -39,7 +39,7 @@ const Services = () => {
           <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto"></div>
             <Canvas></Canvas>
-            <div className="relative z-1 max-w-[17rem] ml-auto">
+            <div className="relative z-1 max-w-[17rem] ml-auto hidden lg:block">
               <h4 className="h4 mb-4">Community first.</h4>
               <p className="body-2 mb-[3rem] text-n-3">
                 Easily foster community cohesion through your culture.

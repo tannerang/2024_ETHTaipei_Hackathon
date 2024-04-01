@@ -94,6 +94,12 @@ export const dysonLogos = [
   dysonLogo,
 ];
 
+export const swapServices = [
+  "Bridge aggregator",
+  "Route best price",
+  "Trade across chains",
+];
+
 export const arrorServices = [
   "Customize logo",
   "Unleash creativity",
