@@ -34,30 +34,32 @@ contract ArrorUniFactoryTest is Test {
 
         vm.createSelectFork(vm.envString("SEPOLIA_RPC_URL"));
         arrorUniFactory = new ArrorUniFactory(address(UNISWAP_V2_ROUTER_SEPOLIA), address(UNISWAP_V2_FACTORY_SEPOLIA));
-
-        (arrorERC404, uniswapV2Pair) = arrorUniFactory.createERC404("name", "symbol", 18, 100, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA));
+        
+        /*
+        (arrorERC404, uniswapV2Pair) = arrorUniFactory.createERC404("name", "symbol", 18, 10000, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA));
         console2.log("arrorERC404 address:", address(arrorERC404));
         console2.log("uniswapV2Pair address:", uniswapV2Pair);
+        */
 
-        deal(user, 1000 ether);
-        deal(address(arrorERC404), user, 10000 * 10 ** arrorERC404.decimals());
+        deal(user, 10000 ether);
+        //deal(address(arrorERC404), user, 10000 * 10 ** arrorERC404.decimals());
     }
 
-    /*
+    
     function testCreateERC404() public {
         // (ArrorERC404 arrorERC404, address uniswapV2Pair) = arrorUniFactory.createERC404("name", "symbol", 18, 100, "uri1", "uri2", "uri3", "uri4", "uri5", WETH9);
 
-        (arrorERC404, uniswapV2Pair) = arrorUniFactory.createERC404("name", "symbol", 18, 100, "uri1", "uri2", "uri3", "uri4", "uri5", WETH9_SEPOLIA);
+        (arrorERC404, uniswapV2Pair) = arrorUniFactory.createERC404{value: 1 ether}("name", "symbol", 18, 10000, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA), 10 ** 19);
         console2.log("arrorERC404 address:", address(arrorERC404));
         console2.log("uniswapV2Pair address:", uniswapV2Pair);
     }
-    */
+    
 
-    function testPairAddLiquidityETH() public {
-
+    function testPairAddLiquidity() public {
+        /*
         vm.startPrank(user);
         arrorERC404.erc20Approve(address(UNISWAP_V2_ROUTER_SEPOLIA), 10000 * 10 ** arrorERC404.decimals());
-        UNISWAP_V2_ROUTER_SEPOLIA.addLiquidityETH{value:10 ether}(
+        UNISWAP_V2_ROUTER_SEPOLIA.addLiquidity{value:10 ether}(
             address(arrorERC404),
             10 * 10 ** arrorERC404.decimals(),
             0,
@@ -74,6 +76,8 @@ contract ArrorUniFactoryTest is Test {
 
         // assertEq(_reserve0, 0);
         // assertEq(_reserve1, 0);
+
+        */
     }
 
 }

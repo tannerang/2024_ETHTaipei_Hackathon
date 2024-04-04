@@ -37,7 +37,8 @@ contract ArrorUniFactory {
         string memory tokenURI3_,
         string memory tokenURI4_,
         string memory tokenURI5_,
-        address tokenB_
+        address tokenB_,
+        uint256 amountA
     ) public payable returns (ArrorERC404 newArror, address uniswapV2Pair) {
         newArror = new ArrorERC404(
             name_,
@@ -62,7 +63,7 @@ contract ArrorUniFactory {
         emit ArrorERC404Created(address(newArror), msg.sender);
 
         // Add liquidity
-        _addLiquidityETH(newArror);
+        _addLiquidityETH(newArror, amountA);
     }
 
     function _createPair(address tokenA, address tokenB) internal returns (address uniswapV2Pair){
@@ -71,15 +72,15 @@ contract ArrorUniFactory {
         emit ArrorERC404CreatedPair(tokenA, tokenB, uniswapV2Pair);
     }
 
-    function _addLiquidityETH(ArrorERC404 newArror) internal {
+    function _addLiquidityETH(ArrorERC404 newArror, uint256 amountA) internal {
         newArror.erc20Approve(address(UNISWAP_V2_ROUTER), newArror.erc20TotalSupply());
-        UNISWAP_V2_ROUTER.addLiquidityETH{value:msg.value}(
+        UNISWAP_V2_ROUTER.addLiquidityETH{value: msg.value}(
             address(newArror),
-            1 * 10 ** newArror.decimals(),
+            amountA, // * 10 ** newArror.decimals()
             0,
             0,
             msg.sender,
-            (block.timestamp+999999999)
+            (block.timestamp + 9999999)
         );
         emit ArrorERC404AddLiquidityETH(address(newArror), address(this), 1 * 10 ** newArror.decimals());
     }
