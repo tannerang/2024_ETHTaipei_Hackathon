@@ -3,7 +3,7 @@ pragma solidity ^0.8.21;
 
 import {Test, console2} from "forge-std/Test.sol";
 import {ArrorUniFactory} from "../src/ArrorUniFactory.sol";
-import {ArrorERC404} from "../src/ArrorERC404.sol";
+import {ERC404A} from "../src/ERC404-A.sol";
 import {IUniswapV2Factory} from "contracts/interfaces/IUniswapV2Factory.sol";
 import {IUniswapV2Router01} from "contracts/interfaces/IUniswapV2Router01.sol";
 import {IUniswapV2Router02} from "contracts/interfaces/IUniswapV2Router02.sol";
@@ -22,35 +22,23 @@ contract ArrorUniFactoryTest is Test {
     IUniswapV2Factory public UNISWAP_V2_FACTORY_SEPOLIA = IUniswapV2Factory(0x7E0987E5b3a30e3f2828572Bb659A548460a3003);
     IWETH public WETH9_SEPOLIA = IWETH(0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9);
 
-    ArrorERC404 arrorERC404;
+    ERC404A erc404a;
     address uniswapV2Pair;
 
     address public user = makeAddr("User");
 
     
     function setUp() public {
-        // vm.createSelectFork(vm.envString("MAINNET_RPC_URL"));
-        // arrorUniFactory = new ArrorUniFactory(address(UNISWAP_V2_ROUTER_MAINNET), address(UNISWAP_V2_FACTORY_MAINNET));
-
         vm.createSelectFork(vm.envString("SEPOLIA_RPC_URL"));
         arrorUniFactory = new ArrorUniFactory(address(UNISWAP_V2_ROUTER_SEPOLIA), address(UNISWAP_V2_FACTORY_SEPOLIA));
-        
-        /*
-        (arrorERC404, uniswapV2Pair) = arrorUniFactory.createERC404("name", "symbol", 18, 10000, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA));
-        console2.log("arrorERC404 address:", address(arrorERC404));
-        console2.log("uniswapV2Pair address:", uniswapV2Pair);
-        */
 
         deal(user, 10000 ether);
-        //deal(address(arrorERC404), user, 10000 * 10 ** arrorERC404.decimals());
     }
 
     
     function testCreateERC404() public {
-        // (ArrorERC404 arrorERC404, address uniswapV2Pair) = arrorUniFactory.createERC404("name", "symbol", 18, 100, "uri1", "uri2", "uri3", "uri4", "uri5", WETH9);
-
-        (arrorERC404, uniswapV2Pair) = arrorUniFactory.createERC404{value: 1 ether}("name", "symbol", 18, 10000, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA), 10 ** 19);
-        console2.log("arrorERC404 address:", address(arrorERC404));
+        (erc404a, uniswapV2Pair) = arrorUniFactory.createERC404{value: 1 ether}("name", "symbol", 18, 10000, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA), 10 ** 19);
+        console2.log("erc404a address:", address(erc404a));
         console2.log("uniswapV2Pair address:", uniswapV2Pair);
     }
     
