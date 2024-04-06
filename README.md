@@ -47,9 +47,15 @@ contracts/arror-v1/factory-v1/src/ArrorFactory.sol
 
 
 # How to Get Started
+front-end
 ```
 git clone https://github.com/tannerang/2024_ETHTaipei_Hackathon.git
 cd 2024_ETHTaipei_Hackathon
 npm install
 npm run dev
+```
+contracts
+```
+cd contracts/arror-v1/factory-v1
+forge test
 ```
