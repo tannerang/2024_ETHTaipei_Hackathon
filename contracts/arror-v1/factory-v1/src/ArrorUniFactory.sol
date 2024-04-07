@@ -53,8 +53,9 @@ contract ArrorUniFactory {
         /*
         newArror.setERC721TransferExempt(address(UNISWAP_V2_FACTORY), true);
         newArror.setERC721TransferExempt(address(UNISWAP_V2_ROUTER), true);
-        newArror.setERC721TransferExempt(uniswapV2Pair, true);
         */
+        newArror.setERC721TransferExempt(uniswapV2Pair, true);
+        
         emit ArrorERC404Created(address(newArror), msg.sender);
 
         // Add liquidity
@@ -71,7 +72,7 @@ contract ArrorUniFactory {
         newArror.erc20Approve(address(UNISWAP_V2_ROUTER), newArror.erc20TotalSupply());
         UNISWAP_V2_ROUTER.addLiquidityETH{value: msg.value}(
             address(newArror),
-            amountA, // * 10 ** newArror.decimals()
+            amountA,
             0,
             0,
             msg.sender,

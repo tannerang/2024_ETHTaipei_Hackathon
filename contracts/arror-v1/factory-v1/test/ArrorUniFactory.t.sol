@@ -26,6 +26,8 @@ contract ArrorUniFactoryTest is Test {
     address uniswapV2Pair;
 
     address public user = makeAddr("User");
+    address public maker = makeAddr("Maker");
+    address public trader = makeAddr("Trader");
 
     
     function setUp() public {
@@ -33,39 +35,51 @@ contract ArrorUniFactoryTest is Test {
         arrorUniFactory = new ArrorUniFactory(address(UNISWAP_V2_ROUTER_SEPOLIA), address(UNISWAP_V2_FACTORY_SEPOLIA));
 
         deal(user, 10000 ether);
+
+        vm.startPrank(user);
+        (erc404a, uniswapV2Pair) = arrorUniFactory.createERC404{value: 0.1 ether}("name", "symbol", 18, 10000, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA), 10 ** 22);
+        vm.stopPrank();
+        console2.log("erc404a address:", address(erc404a));
+        console2.log("uniswapV2Pair address:", uniswapV2Pair);
     }
 
     
     function testCreateERC404() public {
-        (erc404a, uniswapV2Pair) = arrorUniFactory.createERC404{value: 1 ether}("name", "symbol", 18, 10000, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA), 10 ** 19);
-        console2.log("erc404a address:", address(erc404a));
-        console2.log("uniswapV2Pair address:", uniswapV2Pair);
-    }
-    
-
-    function testPairAddLiquidity() public {
-        /*
         vm.startPrank(user);
-        arrorERC404.erc20Approve(address(UNISWAP_V2_ROUTER_SEPOLIA), 10000 * 10 ** arrorERC404.decimals());
-        UNISWAP_V2_ROUTER_SEPOLIA.addLiquidity{value:10 ether}(
-            address(arrorERC404),
-            10 * 10 ** arrorERC404.decimals(),
-            0,
-            0,
-            user,
+        (erc404a, uniswapV2Pair) = arrorUniFactory.createERC404{value: 0.1 ether}("memecoin", "symbol", 18, 10000, "uri1", "uri2", "uri3", "uri4", "uri5", address(WETH9_SEPOLIA), 10 ** 22);
+        require(keccak256(bytes(erc404a.name())) == keccak256(bytes("memecoin")), "name assert failed");
+        vm.stopPrank();
+    }
+
+    function testPairGetReserves() public {
+        vm.startPrank(user);
+        (uint112 reserve0, uint112 reserve1, )= IUniswapV2Pair(uniswapV2Pair).getReserves();
+        require(reserve0 == 1e22, "reserve0 assert failed");
+        require(reserve1 == 1e17, "reserve1 assert failed");
+        vm.stopPrank();
+    }
+
+    function testPairSwap() public {
+        deal(trader, 0.01 ether);
+        
+        vm.startPrank(trader);
+
+        // Approve WETH to UNISWAP_V2_ROUTER
+        IERC20(address(WETH9_SEPOLIA)).approve(address(UNISWAP_V2_ROUTER_SEPOLIA), type(uint).max);
+
+        // Define address path
+        address[] memory path = new address[](2);
+        path[0] = address(WETH9_SEPOLIA);
+        path[1] = address(erc404a);
+
+        // Execute swap
+        UNISWAP_V2_ROUTER_SEPOLIA.swapExactETHForTokens{value: 0.01 ether}(
+            0, 
+            path, 
+            trader, 
             (block.timestamp+9999)
         );
         vm.stopPrank();
-
-        IUniswapV2Pair wethArrorPair = IUniswapV2Pair(UNISWAP_V2_FACTORY_SEPOLIA.getPair(address(WETH9_SEPOLIA), address(arrorERC404)));
-        (uint112 _reserve0, uint112 _reserve1,) = wethArrorPair.getReserves();
-        console2.log(_reserve0);
-        console2.log(_reserve1);
-
-        // assertEq(_reserve0, 0);
-        // assertEq(_reserve1, 0);
-
-        */
+        console2.log(erc404a.erc20BalanceOf(trader)); // 906610893880149131581
     }
-
 }
