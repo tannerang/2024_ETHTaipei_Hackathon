@@ -82,4 +82,45 @@ contract ArrorUniFactoryTest is Test {
         vm.stopPrank();
         console2.log(erc404a.erc20BalanceOf(trader)); // 906610893880149131581
     }
+
+    function testPairAddLiquidity() public {
+        deal(maker, 0.1 ether);
+
+        vm.startPrank(maker);
+
+        // Set approve
+        IERC20(address(WETH9_SEPOLIA)).approve(address(UNISWAP_V2_ROUTER_SEPOLIA), type(uint).max);
+
+        // Define address path
+        address[] memory path = new address[](2);
+        path[0] = address(WETH9_SEPOLIA);
+        path[1] = address(erc404a);
+
+        // Execute swap
+        UNISWAP_V2_ROUTER_SEPOLIA.swapExactETHForTokens{value: 0.01 ether}(
+            0, 
+            path, 
+            maker, 
+            (block.timestamp+9999)
+        );
+
+        // Set approve
+        erc404a.erc20Approve(address(UNISWAP_V2_ROUTER_SEPOLIA), 10000 * 10 ** erc404a.decimals());
+        IERC20(address(WETH9_SEPOLIA)).approve(address(UNISWAP_V2_ROUTER_SEPOLIA), type(uint).max);
+
+        // Add liquidity
+        UNISWAP_V2_ROUTER_SEPOLIA.addLiquidityETH{value:0.0001 ether}(
+            address(erc404a),
+            10 ** 19,
+            0,
+            0,
+            maker,
+            (block.timestamp+9999)
+        );
+        vm.stopPrank();
+
+        (uint112 reserve0, uint112 reserve1, ) = IUniswapV2Pair(uniswapV2Pair).getReserves();
+        console2.log(reserve0);
+        console2.log(reserve1);
+    }
 }
